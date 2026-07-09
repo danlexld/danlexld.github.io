@@ -9,11 +9,28 @@ import Header from '../components/Header.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+const postSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: title,
+	description: description,
+	datePublished: pubDate.toISOString(),
+	...(updatedDate && { dateModified: updatedDate.toISOString() }),
+	inLanguage: 'de',
+	mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+	author: {
+		'@type': 'Person',
+		name: 'Daniel Thiel',
+		url: Astro.site?.toString(),
+	},
+};
 ---
 
-<html lang="en">
+<html lang="de">
 	<head>
 		<BaseHead title={title} description={description} />
+		<script type="application/ld+json" set:html={JSON.stringify(postSchema)} />
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -69,7 +86,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							{
 								updatedDate && (
 									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
+										Zuletzt aktualisiert am <FormattedDate date={updatedDate} />
 									</div>
 								)
 							}

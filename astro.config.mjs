@@ -6,9 +6,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	// The deploy workflow (withastro/action) sets `site` and `base` automatically
-	// from your repo's GitHub Pages settings; this value is used for local builds.
-	site: 'https://example.com',
+	site: 'https://danlexld.github.io',
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{

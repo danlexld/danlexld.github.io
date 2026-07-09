@@ -3,24 +3,44 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Daniel Thiel',
+	url: Astro.site?.toString(),
+	jobTitle: 'Rechtsreferendar',
+	worksFor: {
+		'@type': 'Organization',
+		name: 'Oberlandesgericht München',
+	},
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'München',
+		addressCountry: 'DE',
+	},
+	email: 'mailto:danlex.ld@gmail.com',
+	sameAs: ['https://github.com/danlexld'],
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="de">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Hi, I'm Daniel 👋</h1>
+			<h1>Hallo, ich bin Daniel Thiel 👋</h1>
 			<p>
-				Welcome to my corner of the internet. I write about the things I build, learn, and find
-				interesting.
+				Ich bin Rechtsreferendar am OLG München. Hier schreibe ich über Recht, mein Referendariat
+				und das, was ich dabei lerne — verständlich aufgeschrieben, auch für Nicht-Juristen.
 			</p>
 			<p>
-				Want to know more about me? Head over to the <a href="/about">about page</a>, or check out
-				my latest posts on the <a href="/blog">blog</a>.
+				Du möchtest mehr über mich erfahren? Schau auf der <a href="/about">Über-mich-Seite</a>
+				vorbei oder lies meine neuesten Beiträge im <a href="/blog">Blog</a>.
 			</p>
 		</main>
 		<Footer />

@@ -3,10 +3,13 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Daniel. All rights reserved.
+	&copy; {today.getFullYear()} Daniel. Alle Rechte vorbehalten.
+	<p class="legal-links">
+		<a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
+	</p>
 	<div class="social-links">
 		<a href="mailto:danlex.ld@gmail.com">
-			<span class="sr-only">Email Daniel</span>
+			<span class="sr-only">E-Mail an Daniel</span>
 			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
 				><path
 					fill="currentColor"
@@ -14,8 +17,8 @@ const today = new Date();
 				></path></svg
 			>
 		</a>
-		<a href="https://github.com/" target="_blank">
-			<span class="sr-only">Daniel's GitHub profile</span>
+		<a href="https://github.com/danlexld" target="_blank">
+			<span class="sr-only">Daniels GitHub-Profil</span>
 			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"
 				><path
 					fill="currentColor"
@@ -31,6 +34,15 @@ const today = new Date();
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
+	}
+	.legal-links {
+		margin: 0.5em 0 0 0;
+	}
+	.legal-links a {
+		color: rgb(var(--gray));
+	}
+	.legal-links a:hover {
+		color: rgb(var(--gray-dark));
 	}
 	.social-links {
 		display: flex;
