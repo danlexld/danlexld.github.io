@@ -10,6 +10,15 @@ export default defineConfig({
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
+			provider: fontProviders.google(),
+			name: 'Lora',
+			cssVariable: '--font-lora',
+			weights: [600, 700],
+			styles: ['normal', 'italic'],
+			subsets: ['latin'],
+			fallbacks: ['Georgia', 'serif'],
+		},
+		{
 			provider: fontProviders.local(),
 			name: 'Atkinson',
 			cssVariable: '--font-atkinson',
