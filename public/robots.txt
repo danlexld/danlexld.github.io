@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://danlexld.github.io/sitemap-index.xml
+Sitemap: https://daniel-thiel-muenchen.de/sitemap-index.xml
