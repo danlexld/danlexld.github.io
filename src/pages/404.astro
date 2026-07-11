@@ -1,0 +1,68 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title="Seite nicht gefunden" description="Diese Seite existiert nicht (mehr)." />
+		<meta name="robots" content="noindex" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<p class="code">404</p>
+			<h1>Diese Seite gibt es nicht.</h1>
+			<div class="ornament" aria-hidden="true">
+				<span class="line"></span>
+				<span class="diamond"></span>
+				<span class="line"></span>
+			</div>
+			<p>
+				Vielleicht ist die Adresse falsch geschrieben, oder die Seite wurde verschoben. Am besten
+				geht es <a href="/">zur Startseite</a> zurück oder direkt <a href="/blog">zum Blog</a>.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		text-align: center;
+		padding-top: 96px;
+		padding-bottom: 96px;
+	}
+	.code {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: 5em;
+		font-weight: 700;
+		line-height: 1;
+		color: var(--gold);
+	}
+	h1 {
+		font-size: 1.8em;
+		margin-top: 0.3em;
+	}
+	.ornament {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		margin: 28px 0;
+	}
+	.ornament .line {
+		width: 48px;
+		height: 1px;
+		background: var(--gold);
+	}
+	.ornament .diamond {
+		width: 6px;
+		height: 6px;
+		background: var(--gold);
+		transform: rotate(45deg);
+	}
+</style>

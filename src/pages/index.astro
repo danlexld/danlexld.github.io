@@ -37,7 +37,7 @@ const personSchema = {
 <html lang="de">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 	</head>
 	<body>
 		<Header />
@@ -83,7 +83,6 @@ const personSchema = {
 						<div class="contact-links">
 							<a href="mailto:danlex.ld@gmail.com">E-Mail schreiben</a>
 						<a href="https://www.linkedin.com/in/daniel-thiel-998a98316/">LinkedIn</a>
-							<a href="https://github.com/danlexld">GitHub-Profil</a>
 						</div>
 					</div>
 				</aside>

@@ -11,7 +11,7 @@
 	--accent-dark: #6d5423;
 	--gold: #b08d3e; /* decorative only: rules, underlines, marks */
 	--black: 27, 42, 74; /* ink navy */
-	--gray: 121, 113, 98;
+	--gray: 107, 100, 86;
 	--gray-light: 233, 228, 217;
 	--gray-dark: 54, 50, 43;
 	--gray-gradient: rgba(var(--gray-light), 50%), var(--paper);

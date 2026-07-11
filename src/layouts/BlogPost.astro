@@ -30,7 +30,7 @@ const postSchema = {
 <html lang="de">
 	<head>
 		<BaseHead title={title} description={description} />
-		<script type="application/ld+json" set:html={JSON.stringify(postSchema)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(postSchema)} />
 		<style>
 			main {
 				width: calc(100% - 2em);

@@ -1,36 +1,79 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 ---
 
-<Layout
-	title="Über mich"
-	description="Daniel Thiel — Rechtsreferendar am OLG München. Wer ich bin und worüber ich hier schreibe."
-	pubDate={new Date('July 09 2026')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Hallo! Ich bin Daniel Thiel, Rechtsreferendar am Oberlandesgericht München. In etwa zwei Jahren
-		schließe ich meine juristische Ausbildung mit dem Zweiten Staatsexamen ab.
-	</p>
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead
+			title="Über mich"
+			description="Daniel Thiel — Rechtsreferendar am OLG München. Wer ich bin und worüber ich hier schreibe."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Über mich</h1>
+			<div class="ornament" aria-hidden="true">
+				<span class="line"></span>
+				<span class="diamond"></span>
+				<span class="line"></span>
+			</div>
+			<p>
+				Hallo! Ich bin Daniel Thiel, Rechtsreferendar am Oberlandesgericht München. In etwa zwei
+				Jahren schließe ich meine juristische Ausbildung mit dem Zweiten Staatsexamen ab.
+			</p>
 
-	<p>
-		Diese Website ist mein öffentliches Notizbuch. Ich glaube, dass man Dinge erst dann wirklich
-		verstanden hat, wenn man sie so erklären kann, dass auch andere sie verstehen. Deshalb schreibe
-		ich hier über das, was ich in der Ausbildung lerne — Rechtsgebiete, Fälle, Konzepte und die
-		Frage, wie man Jura eigentlich sinnvoll lernt.
-	</p>
+			<p>
+				Diese Website ist mein öffentliches Notizbuch. Ich glaube, dass man Dinge erst dann
+				wirklich verstanden hat, wenn man sie so erklären kann, dass auch andere sie verstehen.
+				Deshalb schreibe ich hier über das, was ich in der Ausbildung lerne — Rechtsgebiete, Fälle,
+				Konzepte und die Frage, wie man Jura eigentlich sinnvoll lernt.
+			</p>
 
-	<p>
-		Die Beiträge richten sich an Studierende und Referendare, an alle, die sich für Recht
-		interessieren, und manchmal einfach an mein zukünftiges Ich. Was hier steht, ist Lernstoff aus
-		der Perspektive eines Referendars — keine Rechtsberatung.
-	</p>
+			<p>
+				Die Beiträge richten sich an Studierende und Referendare, an alle, die sich für Recht
+				interessieren, und manchmal einfach an mein zukünftiges Ich. Was hier steht, ist Lernstoff
+				aus der Perspektive eines Referendars — keine Rechtsberatung.
+			</p>
 
-	<p>
-		Wenn du Fragen hast, einen Fehler findest oder einfach Hallo sagen möchtest: Schreib mir gerne
-		eine <a href="mailto:danlex.ld@gmail.com">E-Mail</a>, vernetz dich mit mir auf
-		<a href="https://www.linkedin.com/in/daniel-thiel-998a98316/">LinkedIn</a> oder schau auf
-		<a href="https://github.com/danlexld">GitHub</a> vorbei.
-	</p>
-</Layout>
+			<p>
+				Wenn du Fragen hast, einen Fehler findest oder einfach Hallo sagen möchtest: Schreib mir
+				gerne eine <a href="mailto:danlex.ld@gmail.com">E-Mail</a> oder vernetz dich mit mir auf
+				<a href="https://www.linkedin.com/in/daniel-thiel-998a98316/">LinkedIn</a>.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		padding-top: 64px;
+	}
+	h1 {
+		text-align: center;
+		font-size: 2em;
+		margin-bottom: 0;
+	}
+	.ornament {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		margin: 24px 0 36px;
+	}
+	.ornament .line {
+		width: 48px;
+		height: 1px;
+		background: var(--gold);
+	}
+	.ornament .diamond {
+		width: 6px;
+		height: 6px;
+		background: var(--gold);
+		transform: rotate(45deg);
+	}
+</style>
