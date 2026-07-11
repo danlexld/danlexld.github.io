@@ -26,6 +26,8 @@ pnpm-debug.log*
 # local Claude Code settings
 .claude/settings.local.json
 
-# private source notes (never publish)
+# private source notes (never publish) — the notizen/ folder ignores every
+# file format; the extension rules below are a safety net for stray files
+notizen/
 *.docx
 *.pdf

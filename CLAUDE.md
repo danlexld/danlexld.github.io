@@ -27,7 +27,7 @@ Manage it with `astro dev stop`, `astro dev status`, and `astro dev logs`. **Res
 
 ## Blog post workflow (the core loop)
 
-1. Daniel drops source material (.docx/.pdf) into the repo root or pastes notes. **`*.docx` and `*.pdf` are gitignored on purpose — private source material must never be committed.** `git add -A` is therefore safe; keep it that way.
+1. Daniel drops source material (any format) into **`notizen/`** in the repo root, or pastes notes. **The entire folder is gitignored — private source material must never be committed** (`*.docx`/`*.pdf` are additionally ignored repo-wide as a safety net). `git add -A` is therefore safe; keep it that way. Look in `notizen/` when he references a Skript or notes by name.
 2. **Copyright triage before writing:** His own notes → free to rework. Third-party material (Ausbildungsskripte with named authors, textbooks) → never reproduce structure, wording, or footnotes; write a fully independent post with its own narrative — only the legal rules themselves (§§, published case law) are free. Tell him explicitly how you handled it.
 3. Write the German draft in his established voice — read the existing posts in `src/content/blog/` first: learning-in-public, Referendar perspective, du-Form, plain language ("auch für Nicht-Juristen"), narrative hook instead of Lehrbuch-Gliederung, often a "Was ich mir merke" close. Every legal-topic post ends with the italic **"keine Rechtsberatung"** disclaimer after a `---` rule.
 4. **Legal accuracy is your job too:** his materials sometimes cite outdated law (e.g. pre-2017 sources missing § 611a BGB) or garbled citations — verify norms, drop shaky citations, and **flag every substantive addition for his review**. He is the lawyer; it publishes under his name.
