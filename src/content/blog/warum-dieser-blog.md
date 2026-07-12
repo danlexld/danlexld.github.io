@@ -2,6 +2,7 @@
 title: 'Warum dieser Blog existiert'
 description: 'Lernen in der Öffentlichkeit: Warum ich als Rechtsreferendar über meine juristische Ausbildung schreibe und was dich hier erwartet.'
 pubDate: 'Jul 09 2026'
+category: 'In eigener Sache'
 ---
 
 Willkommen! Das hier ist der erste Beitrag auf meiner Website — Zeit, kurz zu erklären, was ich hier vorhabe.

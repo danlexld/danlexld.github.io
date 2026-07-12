@@ -3,21 +3,26 @@ const today = new Date();
 ---
 
 <footer>
-	<p>
-		&copy; {today.getFullYear()} Daniel Thiel · <a href="/impressum">Impressum</a> ·
-		<a href="/datenschutz">Datenschutz</a> · <a href="/rss.xml">RSS</a>
-	</p>
+	<span>&copy; {today.getFullYear()} Daniel Thiel</span>
+	<div class="legal-links">
+		<a href="/impressum">Impressum</a>
+		<a href="/datenschutz">Datenschutz</a>
+		<a href="/rss.xml">RSS</a>
+	</div>
 </footer>
 <style>
 	footer {
-		text-align: center;
-		padding: 24px 1em 28px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 26px 72px;
 		border-top: 1px solid rgb(var(--gray-light));
+		font-size: 14px;
 		color: rgb(var(--gray));
 	}
-	p {
-		margin: 0;
-		font-size: 0.7em;
+	.legal-links {
+		display: flex;
+		gap: 24px;
 	}
 	a {
 		color: rgb(var(--gray));
@@ -25,5 +30,16 @@ const today = new Date();
 	}
 	a:hover {
 		color: var(--accent);
+	}
+	@media (max-width: 640px) {
+		footer {
+			flex-direction: column;
+			gap: 8px;
+			padding: 20px;
+			font-size: 13px;
+		}
+		.legal-links {
+			gap: 18px;
+		}
 	}
 </style>

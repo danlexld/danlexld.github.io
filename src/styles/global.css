@@ -14,6 +14,7 @@
 	--gray: 107, 100, 86;
 	--gray-light: 233, 228, 217;
 	--gray-dark: 54, 50, 43;
+	--panel: #f2ede2; /* tinted panel bg ("Was ich mir merke") */
 	--gray-gradient: rgba(var(--gray-light), 50%), var(--paper);
 	--box-shadow:
 		0 2px 6px rgba(var(--gray), 18%), 0 8px 24px rgba(var(--gray), 20%),
@@ -90,8 +91,161 @@ a:hover {
 p {
 	margin-bottom: 1em;
 }
+
+/* ——— Article prose (BlogPost layout) ——— */
+.prose {
+	font-size: 18px;
+	line-height: 1.8;
+	color: rgb(var(--gray-dark));
+}
 .prose p {
-	margin-bottom: 2em;
+	margin: 20px 0 0;
+}
+.prose > p:first-child {
+	margin-top: 0;
+}
+.prose > p:first-child::first-letter {
+	float: left;
+	font-family: var(--font-serif);
+	font-weight: 600;
+	font-size: 66px;
+	line-height: 0.82;
+	padding: 8px 12px 0 0;
+	color: rgb(var(--black));
+}
+.prose h2 {
+	font-size: 28px;
+	line-height: 1.25;
+	margin: 52px 0 0;
+}
+.prose h3 {
+	font-size: 22px;
+	margin: 40px 0 0;
+}
+.prose strong {
+	color: rgb(var(--black));
+}
+.prose blockquote {
+	border-left: 3px solid var(--gold);
+	margin: 36px 0;
+	padding: 6px 0 6px 26px;
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: 22px;
+	line-height: 1.55;
+	color: rgb(var(--black));
+}
+.prose ol {
+	list-style: none;
+	counter-reset: step;
+	margin: 12px 0 0;
+	padding: 0;
+}
+.prose ol > li {
+	counter-increment: step;
+	display: grid;
+	grid-template-columns: 56px 1fr;
+	gap: 22px;
+	padding: 24px 0;
+	border-bottom: 1px solid rgb(var(--gray-light));
+	font-size: 17px;
+	line-height: 1.75;
+}
+.prose ol > li:last-child {
+	border-bottom: none;
+}
+.prose ol > li::before {
+	content: counter(step);
+	font-family: var(--font-serif);
+	font-size: 32px;
+	line-height: 1;
+	color: var(--gold);
+}
+.prose ul {
+	margin: 20px 0 0;
+	padding-left: 24px;
+}
+.prose ul li {
+	margin-top: 8px;
+}
+/* "Was ich mir merke" panel: heading + following paragraph share the tinted card */
+.prose #was-ich-mir-merke {
+	background: var(--panel);
+	border-radius: 8px 8px 0 0;
+	margin: 44px 0 0;
+	padding: 30px 34px 0;
+	font-family: var(--font-atkinson);
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	line-height: 1;
+	color: var(--accent);
+}
+.prose #was-ich-mir-merke + p {
+	background: var(--panel);
+	border-radius: 0 0 8px 8px;
+	margin: 0;
+	padding: 14px 34px 30px;
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: 20px;
+	line-height: 1.65;
+	color: rgb(var(--black));
+}
+/* Disclaimer note: final --- + italic paragraph */
+.prose hr {
+	margin: 48px 0 0;
+}
+.prose hr + p {
+	margin: 0;
+	padding-top: 24px;
+	font-size: 15px;
+	font-style: italic;
+	line-height: 1.7;
+	color: rgb(var(--gray));
+}
+@media (max-width: 640px) {
+	.prose {
+		font-size: 16px;
+		line-height: 1.75;
+	}
+	.prose > p:first-child::first-letter {
+		font-size: 48px;
+		line-height: 0.85;
+		padding: 6px 9px 0 0;
+	}
+	.prose h2 {
+		font-size: 21px;
+		margin-top: 32px;
+	}
+	.prose h3 {
+		font-size: 19px;
+	}
+	.prose blockquote {
+		margin: 28px 0;
+		padding: 4px 0 4px 18px;
+		font-size: 18px;
+	}
+	.prose ol > li {
+		grid-template-columns: 36px 1fr;
+		gap: 14px;
+		padding: 18px 0;
+		font-size: 15px;
+		line-height: 1.7;
+	}
+	.prose ol > li::before {
+		font-size: 24px;
+	}
+	.prose #was-ich-mir-merke {
+		padding: 22px 22px 0;
+		font-size: 11px;
+	}
+	.prose #was-ich-mir-merke + p {
+		padding: 10px 22px 22px;
+		font-size: 17px;
+		line-height: 1.6;
+	}
 }
 textarea {
 	width: 100%;

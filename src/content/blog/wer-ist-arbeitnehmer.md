@@ -2,13 +2,14 @@
 title: 'Wer ist eigentlich Arbeitnehmer? Die Definition und ihre Grenzfälle'
 description: 'Arbeitnehmer, Selbstständige, Azubis, GmbH-Geschäftsführer: Wer fällt unter das Arbeitsrecht — und wer nicht? Die Abgrenzung einfach erklärt.'
 pubDate: 2026-07-10
+category: 'Arbeitsrecht'
 ---
 
 „Arbeitnehmer" — das klingt nach einer Frage, die niemand stellen muss. Jeder weiß doch, was ein Arbeitnehmer ist. Bis man Jura studiert und merkt: Auf dieser einen Frage baut das gesamte Arbeitsrecht auf. Kündigungsschutz, bezahlter Urlaub, Entgeltfortzahlung im Krankheitsfall, der Weg zum Arbeitsgericht — all das bekommt nur, wer Arbeitnehmer *im Rechtssinne* ist. Und genau an den Rändern wird es interessant.
 
 ## Die Definition
 
-Seit 2017 steht die Definition im Gesetz, in § 611a BGB. Auf den Kern eingedampft:
+Seit 2017 steht die Definition im Gesetz, in § 611a BGB.
 
 > Arbeitnehmer ist, wer sich durch einen privatrechtlichen Vertrag verpflichtet, **weisungsgebundene, fremdbestimmte Arbeit in persönlicher Abhängigkeit** zu leisten.
 
@@ -38,7 +39,7 @@ Nach all dem fast enttäuschend einfach: **Arbeitgeber ist, wer mindestens einen
 
 ## Was ich mir merke
 
-Es zählt nicht das Etikett, sondern die Realität. Weisungsgebundenheit und Eingliederung machen den Arbeitnehmer; wer beides nicht hat, ist selbstständig — und dazwischen liegt ein schmaler Streifen aus arbeitnehmerähnlichen Personen, Azubis und Sonderfällen, in dem die Musik der Klausuren spielt.
+Es zählt nicht das Etikett, sondern die Realität. Weisungsgebundenheit und Eingliederung machen den Arbeitnehmer, wer beides nicht hat, ist selbstständig — und dazwischen liegt ein schmaler Streifen aus arbeitnehmerähnlichen Personen, Azubis und Sonderfällen, in dem die Musik der Klausuren spielt.
 
 ---
 

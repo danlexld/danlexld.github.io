@@ -2,6 +2,7 @@
 title: 'Das gerichtliche Mahnverfahren, einfach erklärt'
 description: 'Mahnbescheid bekommen oder Geld eintreiben? Wie das Mahnverfahren nach §§ 688 ff. ZPO funktioniert — Ablauf, Fristen und die Fehler, die man vermeiden sollte.'
 pubDate: 2026-07-11
+category: 'Zivilprozessrecht'
 ---
 
 Stell dir vor, du hast eine Rechnung über 2.000 € gestellt, und der Kunde zahlt einfach nicht. Klagen? Das bedeutet Klageschrift, Gerichtstermin, womöglich Monate Verfahrensdauer — und am Anfang eine volle Gerichtsgebühr. Für genau diese Situation kennt die ZPO eine Abkürzung: das **gerichtliche Mahnverfahren** (§§ 688–703d ZPO). Es ist so beliebt, dass ein großer Teil der Zivilverfahren in Deutschland genau so beginnt — und viele davon enden, ohne dass je ein Richter den Fall gesehen hat.
