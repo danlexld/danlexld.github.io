@@ -7,7 +7,13 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://daniel-thiel-muenchen.de',
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		mdx(),
+		sitemap({
+			// Impressum/Datenschutz sind noindex — nicht zusätzlich per Sitemap einreichen
+			filter: (page) => !page.includes('/impressum') && !page.includes('/datenschutz'),
+		}),
+	],
 	fonts: [
 		{
 			provider: fontProviders.google(),

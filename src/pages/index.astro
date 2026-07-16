@@ -6,15 +6,23 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
+const allPosts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const posts = allPosts.slice(0, 3);
+
+// Rechtsgebiete aus den Post-Kategorien — wächst automatisch mit neuen Beiträgen
+const rechtsgebiete = [
+	...new Set(allPosts.map((p) => p.data.category).filter((c) => c && c !== 'In eigener Sache')),
+];
 
 const personSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Person',
+	'@id': `${Astro.site}#daniel-thiel`,
 	name: 'Daniel Thiel',
 	url: Astro.site?.toString(),
+	knowsAbout: ['Recht', ...rechtsgebiete],
 	jobTitle: 'Rechtsreferendar',
 	worksFor: {
 		'@type': 'Organization',

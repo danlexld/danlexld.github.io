@@ -20,6 +20,7 @@ const postSchema = {
 	mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
 	author: {
 		'@type': 'Person',
+		'@id': `${Astro.site}#daniel-thiel`,
 		name: 'Daniel Thiel',
 		url: Astro.site?.toString(),
 	},
@@ -28,7 +29,11 @@ const postSchema = {
 
 <html lang="de">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead
+			title={title}
+			description={description}
+			article={{ publishedTime: pubDate, modifiedTime: updatedDate }}
+		/>
 		<script is:inline type="application/ld+json" set:html={JSON.stringify(postSchema)} />
 	</head>
 
