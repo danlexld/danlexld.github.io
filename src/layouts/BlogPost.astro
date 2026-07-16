@@ -54,6 +54,14 @@ const postSchema = {
 				<div class="prose">
 					<slot />
 				</div>
+				<aside class="post-contact">
+					<p>
+						Fragen oder Anmerkungen zum Beitrag? Schreib mir gern per
+						<a href="mailto:danlex.ld@gmail.com">E-Mail</a> oder auf
+						<a href="https://www.linkedin.com/in/daniel-thiel-998a98316/">LinkedIn</a> — ich freue
+						mich über den Austausch.
+					</p>
+				</aside>
 			</article>
 		</main>
 		<Footer />
@@ -102,6 +110,17 @@ const postSchema = {
 		height: 3px;
 		background: var(--gold);
 		margin: 32px 0 36px;
+	}
+	.post-contact {
+		border-top: 2px solid var(--gold);
+		margin-top: 40px;
+		padding-top: 18px;
+	}
+	.post-contact p {
+		margin: 0;
+		font-size: 16px;
+		line-height: 1.7;
+		color: rgb(var(--gray-dark));
 	}
 	@media (max-width: 640px) {
 		main {
