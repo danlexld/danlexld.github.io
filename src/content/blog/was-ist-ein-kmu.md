@@ -5,11 +5,11 @@ pubDate: 2026-07-16
 category: 'Europarecht'
 ---
 
-Wegen eines Praxisfalls durfte ich kürzlich tief in eine Frage einsteigen, die auf den ersten Blick banal klingt: Ist dieses Unternehmen ein KMU — ein kleines oder mittleres Unternehmen? Mein erster Gedanke war ehrlich gesagt: Das sieht man doch. Wenige Mitarbeiter, überschaubarer Umsatz, fertig. Nach der Recherche weiß ich: Genau dieser Gedanke ist der häufigste Fehler. Man kann ein Unternehmen mit drei Mitarbeitern haben, das **kein** KMU ist.
+Wegen eines Praxisfalls durfte ich kürzlich tief in eine Frage einsteigen, die auf den ersten Blick banal klingt: Ist dieses Unternehmen ein KMU — ein kleines oder mittleres Unternehmen? Spannend ist: Man kann ein Unternehmen mit drei Mitarbeitern haben, das **kein** KMU ist.
 
 ## Warum die Frage überhaupt wichtig ist
 
-„KMU" ist kein beschreibendes Etikett, sondern ein Rechtsbegriff mit Geldwert. An ihm hängen EU-Förderprogramme, staatliche Beihilfen, Gebührenermäßigungen und diverse Erleichterungen — und das quer durch die EU nach einheitlichen Maßstäben, damit nicht ein Mitgliedstaat großzügiger fördert als der andere. Die Messlatte liefert die **Empfehlung 2003/361/EG** der Europäischen Kommission. Und weil neun von zehn Unternehmen in der EU KMU sind, betrifft die Definition fast jeden — vom Handwerksbetrieb bis zum Start-up.
+„KMU" ist kein beschreibendes Etikett, sondern ein Rechtsbegriff mit Geldwert. An ihm hängen EU-Förderprogramme, staatliche Beihilfen, Gebührenermäßigungen und diverse Erleichterungen, unter anderem der Wegfall einer Energieauditpflicht — und das quer durch die EU nach einheitlichen Maßstäben, damit nicht ein Mitgliedstaat großzügiger fördert als der andere. Die Messlatte liefert die **Empfehlung 2003/361/EG** der Europäischen Kommission. Und weil neun von zehn Unternehmen in der EU KMU sind, betrifft die Definition fast jeden — vom Handwerksbetrieb bis zum Start-up.
 
 Der Zweck der Definition erklärt auch ihre Strenge: Die Fördertöpfe sind begrenzt und sollen nur bei Unternehmen landen, die die typischen KMU-Probleme wirklich haben — schwerer Zugang zu Kapital, keine eigene Rechtsabteilung, keine Konzernmutter im Rücken. Genau deshalb schaut die Definition nicht nur auf die Größe, sondern auch darauf, **wer hinter dem Unternehmen steht**.
 
@@ -27,7 +27,7 @@ Zwei Feinheiten, die gern übersehen werden: Die Mitarbeiterzahl wird in **Jahre
 
 ## Der eigentliche Test: Wer steht dahinter?
 
-Jetzt zum Teil, der meinen „Das sieht man doch"-Instinkt widerlegt hat. Die Schwellenwerte prüft man nämlich nicht zwingend nur mit den eigenen Zahlen. Die Definition kennt drei Konstellationen:
+Die Schwellenwerte prüft man nämlich nicht zwingend nur mit den eigenen Zahlen. Die Definition kennt drei Konstellationen:
 
 **Eigenständige Unternehmen** — der Normalfall. Niemand hält 25 % oder mehr am Unternehmen, das Unternehmen hält selbst nirgends 25 % oder mehr. Dann zählen nur die eigenen Zahlen.
 
@@ -41,7 +41,7 @@ Erwähnenswert sind noch zwei Sonderregeln: Hält die **öffentliche Hand** 25 %
 
 ## Ein Puffer für Grenzfälle
 
-Was passiert, wenn ein wachsendes Unternehmen die Schwellen reißt? Nichts — zunächst. Der Status ändert sich erst, wenn die Schwellenwerte in **zwei aufeinanderfolgenden Geschäftsjahren** über- oder unterschritten werden. Wachstum soll nicht bestraft werden. Wichtige Ausnahme: Wer durch **Übernahme oder Fusion** plötzlich zu einem Konzern gehört, verliert den Status sofort — das ist keine vorübergehende Schwankung, sondern eine neue Realität.
+Was passiert, wenn ein wachsendes Unternehmen die Schwellen reißt? Nichts — zunächst. Der Status ändert sich erst, wenn die Schwellenwerte in **zwei aufeinanderfolgenden Geschäftsjahren** über- oder unterschritten werden. Wachstum soll nicht bestraft werden. Wichtige Ausnahme: Wer durch **Übernahme oder Fusion** plötzlich zu einem Konzern gehört, verliert den Status sofort.
 
 ## Was ich mir merke
 
@@ -49,4 +49,4 @@ KMU ist, wer klein ist **und** niemanden Großes hinter sich hat. Die Schwellenw
 
 ---
 
-*Vertiefung gefällig? Die Kommission hat einen ausführlichen [Benutzerleitfaden zur KMU-Definition](https://single-market-economy.ec.europa.eu/smes/sme-fundamentals/sme-definition_en) veröffentlicht; verbindlich ist allein die Empfehlung 2003/361/EG. Und wie alles hier: Lernnotizen aus dem Referendariat, keine Rechtsberatung — ob ein konkretes Unternehmen ein KMU ist, kann im Detail knifflig sein und gehört in fachkundige Hände.*
+*Vertiefung gefällig? Die Kommission hat einen ausführlichen [Benutzerleitfaden zur KMU-Definition](https://single-market-economy.ec.europa.eu/smes/sme-fundamentals/sme-definition_en) veröffentlicht; verbindlich ist allein die Empfehlung 2003/361/EG. Und wie alles hier: Lernnotizen aus dem Referendariat, keine Rechtsberatung.*
