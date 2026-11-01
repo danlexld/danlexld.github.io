@@ -56,10 +56,14 @@ Manage it with `astro dev stop`, `astro dev status`, and `astro dev logs`. **Res
 - Windows PowerShell 5.1 mangles non-ASCII (ä, ·, —) in HTTP responses — match ASCII substrings when verifying pages.
 - Anything DNS/domain-fresh fails first with **stale negative caches** (GitHub Pages check, Google verification, local resolver). The config is usually already correct: verify externally (8.8.8.8, authoritative NS, DENIC RDAP), then wait 1–2 h and retry before changing anything.
 - Build exit codes can be nonzero due to PS 5.1 stderr wrapping even when the build succeeded — read the output, not just the code.
+- Astro's HTML compression drops a line break that sits directly between text and a tag: `auf⏎<a>LinkedIn</a>` renders as "aufLinkedIn". Break lines only between plain words (`auf <a …>` on one line).
+- Page-level `main` rules use `width: auto` + `max-width` — never `width: 100%` with horizontal padding (content-box), which overflows on phones. Verify mobile layouts at a true 390 px width: headless Edge won't render narrower than ~500 px, so embed the page in a 390 px iframe and screenshot that. Also check 360 px (most common Android width): long German compounds in titles overflow there — `global.css` hyphenates headings and `.post-title` on phones; headless Edge lacks the German hyphenation dictionary, so it shows hard breaks where real browsers show hyphens.
 
-## Open items
+## Portrait
 
-- Real photo of Daniel: the design handoff specifies framed portrait slots (1px navy border, 12px padding, small-caps caption) on the homepage hero right column and the Über-mich page left column — build them in when he provides a photo.
+- `src/components/Portrait.astro` renders the framed photo (design handoff: 1px navy frame, 12px padding, small-caps caption); pages set the photo height via `--photo-height` on the class they pass. Used in the homepage hero (hidden ≤640 px per design) and on Über mich. The Person schema's `image` comes from the same file.
+- Source: `src/assets/daniel-thiel-portrait.jpg` — 1400 px, metadata stripped, downscaled from Daniel's AI-upscaled original (checked for upscaling artifacts at 100 %). Originals live in `notizen/` — never commit them (EXIF). The homepage passes `sizes="(max-width: 640px) 1px, …"` because the hero portrait is hidden on phones, so phones fetch only the smallest variant.
+- Homepage sidebar "Themen" lists the Rechtsgebiete from post categories automatically (most posts first) — nothing to maintain; the same list feeds `knowsAbout` in the Person schema.
 
 ## Documentation
 

@@ -49,7 +49,7 @@ const posts = (await getCollection('blog')).sort(
 		max-width: 920px;
 		margin: 0 auto;
 		padding: 80px 72px 96px;
-		width: 100%;
+		width: auto; /* nicht 100 %: das Padding käme obendrauf und liefe auf dem Handy über */
 	}
 	.kicker {
 		margin: 0;

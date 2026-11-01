@@ -207,6 +207,17 @@ p {
 	color: rgb(var(--gray));
 }
 @media (max-width: 640px) {
+	/* Lange Komposita („Telekommunikationsüberwachung,") sprengen auf schmalen Handys
+	   sonst das Layout: in Überschriften und Beitragstiteln trennen, notfalls hart umbrechen */
+	h1,
+	h2,
+	h3,
+	.post-title {
+		-webkit-hyphens: auto;
+		hyphens: auto;
+		hyphenate-limit-chars: 12 5 5;
+		overflow-wrap: anywhere;
+	}
 	.prose {
 		font-size: 16px;
 		line-height: 1.75;

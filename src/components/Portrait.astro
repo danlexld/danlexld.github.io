@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/daniel-thiel-portrait.jpg';
+
+interface Props {
+	caption: string;
+	/* Above the fold als Hauptbild: sofort laden statt lazy */
+	eager?: boolean;
+	/* Darstellungsbreite fürs srcset; Seiten, die das Foto mobil ausblenden, geben dort 1px an */
+	sizes?: string;
+	class?: string;
+}
+
+// ...rest reicht das data-astro-cid-Attribut der Seite durch, damit deren Stile (Fotohöhe, Layout) greifen
+const {
+	caption,
+	eager = false,
+	sizes = '(max-width: 640px) calc(100vw - 66px), 314px',
+	class: className,
+	...rest
+} = Astro.props;
+---
+
+<figure class:list={['portrait', className]} {...rest}>
+	<div class="frame">
+		<Image
+			src={portrait}
+			alt="Porträt von Daniel Thiel"
+			widths={[480, 960, portrait.width]}
+			sizes={sizes}
+			loading={eager ? 'eager' : 'lazy'}
+			fetchpriority={eager ? 'high' : 'auto'}
+		/>
+	</div>
+	<figcaption>{caption}</figcaption>
+</figure>
+
+<style>
+	/* Rahmen laut Design-Handoff: 1px Navy, 12px Innenabstand, eckiges Foto.
+	   Die Fotohöhe setzt die einbindende Seite über --photo-height. */
+	.portrait {
+		margin: 0;
+	}
+	.frame {
+		border: 1px solid rgb(var(--black));
+		padding: 12px;
+		background: var(--paper);
+	}
+	.frame img {
+		display: block;
+		width: 100%;
+		height: var(--photo-height, 380px);
+		object-fit: cover;
+		object-position: 50% 30%;
+		border-radius: 0;
+	}
+	figcaption {
+		margin-top: 12px;
+		font-size: 12px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+</style>

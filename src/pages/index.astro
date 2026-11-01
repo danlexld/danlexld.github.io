@@ -1,9 +1,12 @@
 ---
+import { getImage } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import portrait from '../assets/daniel-thiel-portrait.jpg';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import Portrait from '../components/Portrait.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 const allPosts = (await getCollection('blog')).sort(
@@ -11,10 +14,18 @@ const allPosts = (await getCollection('blog')).sort(
 );
 const posts = allPosts.slice(0, 3);
 
-// Rechtsgebiete aus den Post-Kategorien — wächst automatisch mit neuen Beiträgen
-const rechtsgebiete = [
-	...new Set(allPosts.map((p) => p.data.category).filter((c) => c && c !== 'In eigener Sache')),
-];
+// Rechtsgebiete aus den Post-Kategorien — wächst automatisch mit neuen Beiträgen,
+// meistbeschriebene zuerst (Seitenblock "Themen" und Person-Schema)
+const kategorien = allPosts
+	.map((p) => p.data.category)
+	.filter((c): c is string => !!c && c !== 'In eigener Sache');
+const anzahl = (gebiet: string) => kategorien.filter((c) => c === gebiet).length;
+const rechtsgebiete = [...new Set(kategorien)].sort(
+	(a, b) => anzahl(b) - anzahl(a) || a.localeCompare(b, 'de'),
+);
+
+// Porträt fürs Person-Schema als JPEG mit absoluter URL (Suchmaschinen, KI-Assistenten)
+const schemaPortrait = await getImage({ src: portrait, format: 'jpg' });
 
 const personSchema = {
 	'@context': 'https://schema.org',
@@ -22,6 +33,7 @@ const personSchema = {
 	'@id': `${Astro.site}#daniel-thiel`,
 	name: 'Daniel Thiel',
 	url: Astro.site?.toString(),
+	image: new URL(schemaPortrait.src, Astro.site).toString(),
 	knowsAbout: ['Recht', ...rechtsgebiete],
 	jobTitle: 'Rechtsreferendar',
 	worksFor: {
@@ -58,12 +70,17 @@ const personSchema = {
 					</h1>
 					<div class="gold-rule" aria-hidden="true"></div>
 					<p class="intro">
-						Hallo, ich bin Daniel — Rechtsreferendar am OLG München. Dieser Blog ist mein
-						Versuch, das Referendariat und die Fragen, die mir dabei begegnen, so aufzuschreiben,
-						dass sie jeder versteht. Ohne Fachchinesisch, ohne Fußnotenapparat. Wenn du wissen
-						willst, wer hinter den Texten steckt: <a href="/about">hier stelle ich mich vor</a>.
+						Ich bin Daniel Thiel. Hier schreibe ich über Rechtsfragen, die mir begegnen — ich hoffe,
+						die Beiträge sind hilfreich. Über Rückfragen zu Beiträgen oder sonstigen persönlichen
+						Austausch freue ich mich: <a href="/about">hier stelle ich mich vor</a>.
 					</p>
 				</div>
+				<Portrait
+					class="hero-portrait"
+					caption="Daniel Thiel · München"
+					sizes="(max-width: 640px) 1px, 314px"
+					eager
+				/>
 			</section>
 			<section class="content">
 				<div class="posts">
@@ -88,6 +105,12 @@ const personSchema = {
 					<div class="side-block">
 						<h2>Aktuell</h2>
 						<p>Strafstation in München. Die aktuellen Beiträge drehen sich um das Ermittlungsverfahren.</p>
+					</div>
+					<div class="side-block">
+						<h2>Themen</h2>
+						<ul class="topics">
+							{rechtsgebiete.map((gebiet) => <li>{gebiet}</li>)}
+						</ul>
 					</div>
 					<div class="side-block">
 						<h2>Kontakt</h2>
@@ -235,6 +258,13 @@ const personSchema = {
 		font-size: 16px;
 		line-height: 1.7;
 	}
+	.topics {
+		list-style: none;
+		margin: 12px 0 0;
+		padding: 0;
+		font-size: 16px;
+		line-height: 1.9;
+	}
 	.contact-links {
 		display: flex;
 		flex-direction: column;
@@ -251,10 +281,17 @@ const personSchema = {
 			grid-template-columns: 1fr;
 			gap: 36px;
 		}
+		.hero-portrait {
+			max-width: 340px;
+		}
 	}
 	@media (max-width: 640px) {
 		.hero {
 			padding: 44px 20px 36px;
+		}
+		/* Mobil laut Design ohne Porträt im Hero — es steht auf der Über-mich-Seite */
+		.hero-portrait {
+			display: none;
 		}
 		.content {
 			padding: 0 20px 40px;
@@ -312,6 +349,20 @@ const personSchema = {
 			margin-top: 8px;
 			font-size: 15px;
 			line-height: 1.65;
+		}
+		/* mobil als Zeile mit goldenen Trennpunkten statt Liste */
+		.topics {
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 8px;
+			font-size: 15px;
+			line-height: 1.65;
+		}
+		/* Punkt hinter dem Begriff, damit kein Zeilenanfang mit "·" beginnt */
+		.topics li:not(:last-child)::after {
+			content: '·';
+			margin: 0 8px;
+			color: var(--gold);
 		}
 		.contact-links {
 			flex-direction: row;

@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import Portrait from '../components/Portrait.astro';
 ---
 
 <!doctype html>
@@ -15,31 +16,36 @@ import Header from '../components/Header.astro';
 	<body>
 		<Header />
 		<main>
-			<p class="kicker">Über mich</p>
-			<h1>Hallo, ich bin Daniel.</h1>
-			<div class="gold-rule" aria-hidden="true"></div>
-			<p>
-				Ich bin Rechtsreferendar am Oberlandesgericht München. In etwa zwei Jahren schließe ich
-				meine juristische Ausbildung mit dem Zweiten Staatsexamen ab.
-			</p>
-			<p>
-				Diese Website ist mein öffentliches Notizbuch. Ich glaube, dass man Dinge erst dann
-				wirklich verstanden hat, wenn man sie so erklären kann, dass auch andere sie verstehen.
-				Deshalb schreibe ich hier über das, was ich in der Ausbildung lerne — Rechtsgebiete, Fälle,
-				Konzepte und die Frage, wie man Jura eigentlich sinnvoll lernt.
-			</p>
-			<p>
-				Die Beiträge richten sich an Studierende und Referendare, an alle, die sich für Recht
-				interessieren, und manchmal einfach an mein zukünftiges Ich. Was hier steht, ist Lernstoff
-				aus der Perspektive eines Referendars — keine Rechtsberatung.
-			</p>
-			<div class="contact-block">
-				<h2>Kontakt</h2>
+			<Portrait class="about-portrait" caption="Rechtsreferendar · OLG München" eager />
+			<div class="head">
+				<p class="kicker">Über mich</p>
+				<h1>Hallo, ich bin Daniel.</h1>
+				<div class="gold-rule" aria-hidden="true"></div>
+			</div>
+			<div class="body">
 				<p>
-					Wenn du Fragen hast, einen Fehler findest oder einfach Hallo sagen möchtest: Schreib mir
-					gerne eine <a href="mailto:danlex.ld@gmail.com">E-Mail</a> oder vernetz dich mit mir auf
-					<a href="https://www.linkedin.com/in/daniel-thiel-998a98316/">LinkedIn</a>.
+					Ich bin Rechtsreferendar am Oberlandesgericht München. In etwa zwei Jahren schließe ich
+					meine juristische Ausbildung mit dem Zweiten Staatsexamen ab.
 				</p>
+				<p>
+					Diese Website ist mein öffentliches Notizbuch. Ich glaube, dass man Dinge erst dann
+					wirklich verstanden hat, wenn man sie so erklären kann, dass auch andere sie verstehen.
+					Deshalb schreibe ich hier über das, was ich in der Ausbildung lerne — Rechtsgebiete, Fälle,
+					Konzepte und die Frage, wie man Jura eigentlich sinnvoll lernt.
+				</p>
+				<p>
+					Die Beiträge richten sich an Studierende und Referendare, an alle, die sich für Recht
+					interessieren, und manchmal einfach an mein zukünftiges Ich. Was hier steht, ist Lernstoff
+					aus der Perspektive eines Referendars — keine Rechtsberatung.
+				</p>
+				<div class="contact-block">
+					<h2>Kontakt</h2>
+					<p>
+						Wenn du Fragen hast, einen Fehler findest oder einfach Hallo sagen möchtest: Schreib mir
+						gerne eine <a href="mailto:danlex.ld@gmail.com">E-Mail</a> oder vernetz dich mit mir
+						auf <a href="https://www.linkedin.com/in/daniel-thiel-998a98316/">LinkedIn</a>.
+					</p>
+				</div>
 			</div>
 		</main>
 		<Footer />
@@ -47,11 +53,31 @@ import Header from '../components/Header.astro';
 </html>
 
 <style>
+	/* Desktop: Porträt links über die volle Höhe, Text rechts.
+	   Schmal: Überschrift, dann Porträt, dann Text. */
 	main {
-		max-width: 760px;
+		display: grid;
+		grid-template-columns: 340px 1fr;
+		grid-template-areas:
+			'portrait head'
+			'portrait body';
+		grid-template-rows: auto 1fr;
+		column-gap: 96px;
+		max-width: 1100px;
 		margin: 0 auto;
-		padding: 88px 20px 96px;
-		width: 100%;
+		padding: 88px 72px 96px;
+		width: auto; /* nicht 100 %: das Padding käme obendrauf und liefe auf dem Handy über */
+	}
+	.about-portrait {
+		grid-area: portrait;
+		align-self: start;
+		--photo-height: 420px;
+	}
+	.head {
+		grid-area: head;
+	}
+	.body {
+		grid-area: body;
 	}
 	.kicker {
 		margin: 0;
@@ -73,13 +99,13 @@ import Header from '../components/Header.astro';
 		background: var(--gold);
 		margin: 28px 0 30px;
 	}
-	main > p {
+	.body > p {
 		margin: 22px 0 0;
 		max-width: 58ch;
 		font-size: 18px;
 		line-height: 1.8;
 	}
-	main > p:first-of-type {
+	.body > p:first-of-type {
 		margin-top: 0;
 	}
 	.contact-block {
@@ -102,9 +128,30 @@ import Header from '../components/Header.astro';
 		font-size: 17px;
 		line-height: 1.75;
 	}
+	@media (max-width: 900px) {
+		main {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				'head'
+				'portrait'
+				'body';
+			grid-template-rows: auto;
+			max-width: 760px;
+			padding: 64px 72px 96px;
+		}
+		.about-portrait {
+			max-width: 340px;
+			margin-bottom: 36px;
+		}
+	}
 	@media (max-width: 640px) {
 		main {
 			padding: 40px 20px 48px;
+		}
+		.about-portrait {
+			max-width: none;
+			margin-bottom: 28px;
+			--photo-height: 260px;
 		}
 		.kicker {
 			font-size: 11px;
@@ -117,7 +164,7 @@ import Header from '../components/Header.astro';
 			width: 56px;
 			margin: 20px 0 24px;
 		}
-		main > p {
+		.body > p {
 			font-size: 16px;
 			line-height: 1.75;
 		}
