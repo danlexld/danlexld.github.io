@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import PostListPage from '../layouts/PostListPage.astro';
+
+// Rubrik: alle Beiträge mit Steckbrief einer Entscheidung (Frontmatter "entscheidung")
+const posts = (await getCollection('blog', ({ data }) => !!data.entscheidung)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<PostListPage
+	title="Rechtsprechung"
+	description="Aktuelle Entscheidungen von BGH, BVerfG und anderen Gerichten verständlich analysiert — von Daniel Thiel, Rechtsreferendar am OLG München."
+	kicker="Rubrik"
+	heading="Rechtsprechung"
+	posts={posts}
+	showRubrik={false}
+>
+	<p>
+		Hier bespreche ich Entscheidungen, die mir aufgefallen sind: was passiert ist, wie das
+		Gericht entschieden hat und was daraus über den Einzelfall hinaus folgt. Jede Analyse
+		verlinkt den frei zugänglichen Volltext der Entscheidung.
+	</p>
+</PostListPage>

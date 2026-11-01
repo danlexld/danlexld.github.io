@@ -12,6 +12,7 @@ import HeaderLink from './HeaderLink.astro';
 	<nav>
 		<HeaderLink href="/">Startseite</HeaderLink>
 		<HeaderLink href="/blog">Blog</HeaderLink>
+		<HeaderLink href="/rechtsprechung">Rechtsprechung</HeaderLink>
 		<HeaderLink href="/about">Über mich</HeaderLink>
 	</nav>
 </header>
@@ -80,8 +81,11 @@ import HeaderLink from './HeaderLink.astro';
 			margin-top: 2px;
 			font-size: 10px;
 		}
+		/* vier Menüpunkte: über die volle Breite verteilen, auf sehr schmalen Geräten umbrechen */
 		nav {
-			gap: 24px;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 0 12px;
 			padding: 0 20px;
 		}
 		nav a {

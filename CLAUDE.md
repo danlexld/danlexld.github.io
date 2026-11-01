@@ -36,6 +36,13 @@ Manage it with `astro dev stop`, `astro dev status`, and `astro dev logs`. **Res
 6. Frontmatter: `title`, `description` (one strong sentence — it becomes the Google snippet), `pubDate`, `category` (Rechtsgebiet label shown on the blog index, e.g. "Zivilprozessrecht", "Arbeitsrecht", "In eigener Sache"). Filename = URL slug: short, lowercase, hyphenated, question-shaped where possible (SEO: narrow questions beat broad overviews). Post conventions the CSS relies on: a "## Was ich mir merke" heading followed by **exactly one paragraph** renders as the tinted panel; the closing `---` + italic paragraph renders as the disclaimer note; reading time is computed at build from word count.
 7. Preview on the dev server, hand him the localhost link with review notes — **do not push until he approves the text.** Then commit, push, confirm the live URL, and optionally remind him to request indexing in the Search Console.
 
+## Rubrik "Rechtsprechung" (seit 2026-11)
+
+- A post becomes a case analysis by adding `entscheidung` to its frontmatter (`gericht`, `art`, `datum`, `aktenzeichen`, `url` to the free official full text). It then appears on `/rechtsprechung/` (own nav item), gets the Steckbrief box above the text, a linked "Rechtsprechung" marker in its meta line and lists, and a `citation` in its BlogPosting schema. Keep `category` = Rechtsgebiet as usual, so it also shows on the Themenseite.
+- Verify court, date and Aktenzeichen against the court's own press release or full text before publishing; link only free official sources (court websites, rechtsprechung-im-internet.de, gesetze-bayern.de).
+- Copyright: decisions and amtliche Leitsätze are free (§ 5 UrhG) and may be quoted; editorial Leitsätze/Orientierungssätze and annotations from juris, beck-online, NJW etc. are protected — never copy them. Don't paraphrase the press release; write an independent narrative.
+- Guardrails: never analyse decisions from proceedings Daniel worked on at a Station; critique only sachlich, with extra restraint toward the courts where he trains (OLG/LG München); avoid politically charged cases (Referendar, Mäßigung). As always, flag every substantive legal statement for his review.
+
 ## Design system ("Juristisch-editorial")
 
 - Tokens in `src/styles/global.css`: paper `#faf8f5`, ink navy (`--black` = 27,42,74), **gold `#b08d3e` decorative only** (fails text contrast — use bronze `--accent: #8a6d2f` for interactive text), warm grays. Lora serif for headings/wordmark (self-hosted at build via Astro fonts — keep it that way, GDPR), Atkinson body.

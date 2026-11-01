@@ -14,6 +14,8 @@ interface Props {
 	posts: CollectionEntry<'blog'>[];
 	/* Auf Themenseiten überflüssig: dort haben alle Beiträge dasselbe Rechtsgebiet */
 	showCategory?: boolean;
+	/* Kennzeichnung "Rechtsprechung" — auf der Rubrikseite selbst überflüssig */
+	showRubrik?: boolean;
 	backLink?: boolean;
 }
 
@@ -24,6 +26,7 @@ const {
 	heading,
 	posts,
 	showCategory = true,
+	showRubrik = true,
 	backLink = false,
 } = Astro.props;
 ---
@@ -40,6 +43,7 @@ const {
 			<p class="kicker">{kicker}</p>
 			<h1>{heading}</h1>
 			<div class="gold-rule" aria-hidden="true"></div>
+			{Astro.slots.has('default') && <div class="intro"><slot /></div>}
 			{
 				posts.map((post, i) => (
 					<a class="post-row" href={`/blog/${post.id}/`}>
@@ -48,6 +52,7 @@ const {
 							<span class="meta">
 								<FormattedDate date={post.data.pubDate} />
 								{showCategory && post.data.category && <> · {post.data.category}</>}
+								{showRubrik && post.data.entscheidung && <> · Rechtsprechung</>}
 							</span>
 							<span class="post-title">{post.data.title}</span>
 							<span class="excerpt">{post.data.description}</span>
@@ -97,6 +102,15 @@ const {
 		height: 3px;
 		background: var(--gold);
 		margin: 28px 0 12px;
+	}
+	.intro {
+		max-width: 62ch;
+		margin: 24px 0 8px;
+		font-size: 18px;
+		line-height: 1.75;
+	}
+	.intro :global(p) {
+		margin: 0;
 	}
 	.post-row {
 		display: grid;
@@ -155,6 +169,11 @@ const {
 		.gold-rule {
 			width: 56px;
 			margin: 20px 0 4px;
+		}
+		.intro {
+			margin: 18px 0 6px;
+			font-size: 16px;
+			line-height: 1.7;
 		}
 		.post-row {
 			display: flex;
