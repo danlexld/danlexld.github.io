@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import { istRechtsgebiet, themaUrl } from '../rechtsgebiete';
 
 type Props = CollectionEntry<'blog'>['data'] & { readingMinutes?: number };
 
@@ -43,7 +44,11 @@ const postSchema = {
 			<article>
 				<a class="back" href="/blog">← Alle Beiträge</a>
 				<p class="meta">
-					<FormattedDate date={pubDate} />{category && <> · {category}</>}{
+					<FormattedDate date={pubDate} />{
+						category && (
+							<> · {istRechtsgebiet(category) ? <a href={themaUrl(category)}>{category}</a> : category}</>
+						)
+					}{
 						readingMinutes && <> · {readingMinutes} Min. Lesezeit</>
 					}
 				</p>
@@ -96,6 +101,15 @@ const postSchema = {
 		letter-spacing: 0.16em;
 		text-transform: uppercase;
 		color: rgb(var(--gray));
+	}
+	/* Rechtsgebiet → Themenseite: dezent in der Meta-Zeile, Hover wie überall bronze */
+	.meta a {
+		color: inherit;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 4px;
+	}
+	.meta a:hover {
+		color: var(--accent);
 	}
 	h1 {
 		margin: 16px 0 0;

@@ -8,21 +8,16 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Portrait from '../components/Portrait.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getRechtsgebiete, themaUrl } from '../rechtsgebiete';
 
 const allPosts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const posts = allPosts.slice(0, 3);
 
-// Rechtsgebiete aus den Post-Kategorien — wächst automatisch mit neuen Beiträgen,
-// meistbeschriebene zuerst (Seitenblock "Themen" und Person-Schema)
-const kategorien = allPosts
-	.map((p) => p.data.category)
-	.filter((c): c is string => !!c && c !== 'In eigener Sache');
-const anzahl = (gebiet: string) => kategorien.filter((c) => c === gebiet).length;
-const rechtsgebiete = [...new Set(kategorien)].sort(
-	(a, b) => anzahl(b) - anzahl(a) || a.localeCompare(b, 'de'),
-);
+// Rechtsgebiete aus den Post-Kategorien — wächst automatisch mit neuen Beiträgen
+// (Seitenblock "Themen" mit Links auf die Themenseiten, Person-Schema)
+const rechtsgebiete = getRechtsgebiete(allPosts);
 
 // Porträt fürs Person-Schema als JPEG mit absoluter URL (Suchmaschinen, KI-Assistenten)
 const schemaPortrait = await getImage({ src: portrait, format: 'jpg' });
@@ -34,7 +29,7 @@ const personSchema = {
 	name: 'Daniel Thiel',
 	url: Astro.site?.toString(),
 	image: new URL(schemaPortrait.src, Astro.site).toString(),
-	knowsAbout: ['Recht', ...rechtsgebiete],
+	knowsAbout: ['Recht', ...rechtsgebiete.map((gebiet) => gebiet.name)],
 	jobTitle: 'Rechtsreferendar',
 	worksFor: {
 		'@type': 'Organization',
@@ -109,7 +104,13 @@ const personSchema = {
 					<div class="side-block">
 						<h2>Themen</h2>
 						<ul class="topics">
-							{rechtsgebiete.map((gebiet) => <li>{gebiet}</li>)}
+							{
+								rechtsgebiete.map((gebiet) => (
+									<li>
+										<a href={themaUrl(gebiet.name)}>{gebiet.name}</a>
+									</li>
+								))
+							}
 						</ul>
 					</div>
 					<div class="side-block">

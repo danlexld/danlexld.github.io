@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import PostListPage from '../../../layouts/PostListPage.astro';
+import { getRechtsgebiete, type Rechtsgebiet } from '../../../rechtsgebiete';
+
+// Eine Seite je Rechtsgebiet, verlinkt aus dem Themen-Block der Startseite
+export async function getStaticPaths() {
+	const gebiete = getRechtsgebiete(await getCollection('blog'));
+	return gebiete.map((gebiet) => ({
+		params: { thema: gebiet.slug },
+		props: gebiet,
+	}));
+}
+type Props = Rechtsgebiet;
+
+const { name, posts } = Astro.props;
+---
+
+<PostListPage
+	title={name}
+	description={`Alle Beiträge zum Thema ${name} — verständlich erklärt von Daniel Thiel, Rechtsreferendar am OLG München.`}
+	kicker="Thema"
+	heading={name}
+	posts={posts}
+	showCategory={false}
+	backLink
+/>

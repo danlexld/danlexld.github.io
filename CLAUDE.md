@@ -63,7 +63,7 @@ Manage it with `astro dev stop`, `astro dev status`, and `astro dev logs`. **Res
 
 - `src/components/Portrait.astro` renders the framed photo (design handoff: 1px navy frame, 12px padding, small-caps caption); pages set the photo height via `--photo-height` on the class they pass. Used in the homepage hero (hidden ≤640 px per design) and on Über mich. The Person schema's `image` comes from the same file.
 - Source: `src/assets/daniel-thiel-portrait.jpg` — 1400 px, metadata stripped, downscaled from Daniel's AI-upscaled original (checked for upscaling artifacts at 100 %). Originals live in `notizen/` — never commit them (EXIF). The homepage passes `sizes="(max-width: 640px) 1px, …"` because the hero portrait is hidden on phones, so phones fetch only the smallest variant.
-- Homepage sidebar "Themen" lists the Rechtsgebiete from post categories automatically (most posts first) — nothing to maintain; the same list feeds `knowsAbout` in the Person schema.
+- Homepage sidebar "Themen" lists the Rechtsgebiete from post categories automatically (most posts first) and links each to its Themenseite `/blog/thema/<slug>/` (`src/pages/blog/thema/[thema].astro`) — nothing to maintain; a new `category` creates its page on the next build. Logic lives in `src/rechtsgebiete.ts` (also feeds `knowsAbout` in the Person schema); "In eigener Sache" gets no page. The category in each article's meta line links there too. Blog index and Themenseiten share `src/layouts/PostListPage.astro`.
 
 ## Documentation
 
